@@ -1,0 +1,8 @@
+co\yedam\game\board\GameBoard.class
+co\yedam\game\board\control\PlayerVO.class
+co\yedam\game\board\boardImpl\BoardControlImpl.class
+co\yedam\game\board\control\BoardControl.class
+co\yedam\game\App.class
+co\yedam\game\common\DataSource.class
+co\yedam\game\board\Mapper\BoardMapper.class
+co\yedam\game\common\SHA256.class
