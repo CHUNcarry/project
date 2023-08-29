@@ -6,11 +6,11 @@ import lombok.Data;
 
 @Data
 public class PlayerVO {
-	private int playerNo;
+	private int playerNum;
 	private String playerName;
-	private int playerClear;
-	private int playerTurn;
-	private int playerLevel;
+	private String playerRecord;
 	
+	
+
 
 }

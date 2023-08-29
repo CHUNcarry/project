@@ -8,18 +8,20 @@
 
 
 
-<!-- eventLoad();//이벤트 불러오기
+	<insert id="saveRecord"
+		parameterType="co.yedam.game.board.control.PlayerVO">
+		insert into player
+		values ((select max(player_num) from player) +1), #{playerName}, #{playerRecord})
+
+	</insert>
+
 	
-	public void levelLoad();//레벨 불러오기
-	
-	public void saveRecord(); //종료 후 기록 저장
-	
-	public void RecordView();
-	
-	 -->
-	
-	
-	
-	
-		
+
+	<!-- public void saveRecord(); //종료 후 기록 저장 public void RecordView(); -->
+
+
+
+
+
+
 </mapper>

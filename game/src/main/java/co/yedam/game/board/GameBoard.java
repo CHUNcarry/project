@@ -1,45 +1,37 @@
 package co.yedam.game.board;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-import cd.yedam.game.event.control.EventControl;
-import cd.yedam.game.event.eventImpl.EventControlImpl;
 import co.yedam.game.board.boardImpl.BoardControlImpl;
 import co.yedam.game.board.control.BoardControl;
+import co.yedam.game.board.control.PlayerVO;
+import co.yedam.game.event.control.EventControl;
+import co.yedam.game.event.control.EventVO;
+import co.yedam.game.event.eventImpl.EventControlImpl;
 
 public class GameBoard {
-	// 제품관리메뉴
+	//
 	Scanner sc = new Scanner(System.in);
-	BoardControl bc = new BoardControlImpl();
-	EventControl ec = new EventControlImpl();
+	BoardControl boardControl = new BoardControlImpl();
+	EventControl eventControl = new EventControlImpl();
 	boolean power = true;
+	PlayerVO player = new PlayerVO();
 
-	private void start() {
-		System.out.println("이름을 입력하세요");
+	EventVO eventResult;
 
-		String name = sc.nextLine();
-
-		System.out.println("123124");
-
-		int i = 1;
-		ec.firstEvent(null);
-		ec.eventPlay();
-		stream();
-	}
-
-	private void stream() {
-		for (int i = 0; i<30; i++) {
-			
-			System.out.println();
-			ec.eventPlay();
-			
-			
-			
+	public void mainTitle() {
+		System.out.println("아무 키나 입력하세요");
+		sc.nextLine();
+		String nextLine = "";
+		if (nextLine != null) {
+			menu();
 		}
-		
+
 	}
 
-	public void menu() {
+	private void menu() {
 
 		while (power) {
 			System.out.println("1. 시작하기");
@@ -59,10 +51,66 @@ public class GameBoard {
 			}
 		}
 	}
-	
-	
-	
-	
-	
 
+	private void start() {
+		System.out.println("이름을 입력하세요");
+
+		String name = sc.nextLine();
+
+		System.out.println(name + " 첫 문장");//
+
+		eventPlay();
+
+	}
+
+	private void eventPlay() {
+
+		for (int i = 1; i <= 30; i++) {
+			space();
+			List<EventVO> eventList = new ArrayList<>();
+			EventVO event = new EventVO();
+			event.setEventTurn(i);
+			List<EventVO> selectList = eventControl.lineEvent(event);
+			eventList.addAll(selectList);
+
+			System.out.println("====");
+			System.out.println("[" + i + "]");
+			System.out.println("1.	" + eventList.get(0).getEventName());
+			System.out.println("	" + eventList.get(0).getEventContent());
+			
+			System.out.println("2.	" + eventList.get(1).getEventName());
+			System.out.println("	" + eventList.get(1).getEventContent());
+			
+			System.out.println("3.	" + eventList.get(2).getEventName());
+			System.out.println("	" + eventList.get(2).getEventContent());
+
+			int choose = sc.nextInt();
+			sc.nextLine();
+
+			switch (choose) {
+			case 1:
+				System.out.println(eventList.get(0));
+				System.out.println(eventList.get(0).getEventName());
+				break;
+			case 2:
+				System.out.println(eventList.get(1));
+				break;
+			case 3:
+				System.out.println(eventList.get(2));
+				break;
+
+			default:
+				break;
+
+			}
+			space();
+		}
+	}
+	private void space() {
+		
+		for(int i = 0; i<25; i++) {
+			System.out.println("  ");	
+		}
+		
+	}
 }

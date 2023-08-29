@@ -1,14 +1,13 @@
-package cd.yedam.game.event.control;
+package co.yedam.game.event.control;
 
 import lombok.Data;
 
 @Data
 public class EventVO {
-	private int eventNo;
+	private int eventNum;
 	private String eventContent;
 	private String eventName;
-	
-	
+	private int eventTurn;
 	
 
 }
