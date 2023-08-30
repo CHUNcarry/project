@@ -8,12 +8,18 @@
 		resultType="co.yedam.game.event.control.EventVO">
 		select *
 		from(SELECT *
-			FROM events
-			where event_turn = #{eventTurn}
-			order by DBMS_RANDOM.RANDOM())
+		FROM events
+		where event_turn = #{eventTurn}
+		order by DBMS_RANDOM.RANDOM())
  		<![CDATA[where rownum <= 3]]>
 
 	</select>
+	<select id="firstLine"
+		resultType="co.yedam.game.event.control.EventVO">
+		select event_content
+		from events
+	</select>
+
 
 	<!-- public void eventLoad();//이벤트 불러오기 -->
 

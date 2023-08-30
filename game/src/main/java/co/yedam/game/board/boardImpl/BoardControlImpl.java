@@ -13,22 +13,30 @@ public class BoardControlImpl implements BoardControl {
 	Scanner sc = new Scanner(System.in);
 	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	private BoardMapper map = sqlSession.getMapper(BoardMapper.class);
-		
-	
-	
-	
+
 	@Override
-	public void saveRecord(PlayerVO pl) {
-		map.saveRecord(pl);
+	public void saveRecord(PlayerVO vo) {
+		map.saveRecord(vo);
 
 	}
 
 	@Override
-	public void RecordView(PlayerVO pl) {
-		map.RecordView(pl);
+	public void recordView(PlayerVO vo) {
+		map.recordView(vo);
 
 	}
 
-	
-	
+	@Override
+	public int setting(PlayerVO vo) {
+
+		return map.setting(vo);
+
+	}
+
+	@Override
+	public PlayerVO login(PlayerVO vo) {
+		return map.login(vo);
+
+	}
+
 }

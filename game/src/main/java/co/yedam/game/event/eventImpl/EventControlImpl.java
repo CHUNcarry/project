@@ -21,4 +21,10 @@ public class EventControlImpl implements EventControl {
 
 		return map.lineEvent(event);
 	}
+
+	@Override
+	public List<EventVO> firstLine(EventVO event){
+		return map.firstLine(event);
+
+	}
 }

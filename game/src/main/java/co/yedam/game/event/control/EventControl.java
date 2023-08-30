@@ -11,7 +11,7 @@ public interface EventControl {
 	
 	
 	
-	
+	public List<EventVO> firstLine(EventVO event);
 	
 	
 

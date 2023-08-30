@@ -12,7 +12,7 @@ public class App
     {
         GameBoard gb = new GameBoard();
         
-        gb.mainTitle();
+        gb.Login();
         
     }
 }

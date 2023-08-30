@@ -5,13 +5,9 @@ import java.util.List;
 import co.yedam.game.event.control.EventVO;
 
 public interface EventMapper {
-	
-	
 
 	public List<EventVO> lineEvent(EventVO event);
-	
-	
-	
-	
+
+	public List<EventVO> firstLine(EventVO event);
 
 }

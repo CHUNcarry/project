@@ -3,21 +3,49 @@
 <mapper namespace="co.yedam.game.board.Mapper.BoardMapper">
 
 
+	<select id="recordView"
+		resultType="co.yedam.game.event.control.EventVO">
+		select *
+		from player_record
+		where player_name = #{playerName}
+ 		
 
+	</select>
+
+
+	<insert id="setting"
+		parameterType="co.yedam.game.board.control.PlayerVO">
+		insert into player(player_num, player_name, player_password)
+		values (player_seq.nextval, #{playerName}, #{playerPassword})
+	</insert>
 
 
 
 
 	<insert id="saveRecord"
 		parameterType="co.yedam.game.board.control.PlayerVO">
-		insert into player
-		values ((select max(player_num) from player) +1), #{playerName}, #{playerRecord})
+		insert into player_record
+		values ( 
+		#{line1}, #{line2}, #{line3}, #{line4}, #{line5}, #{line6}, #{line7}, #{line8}, #{line9}, #{line10}, 
+		#{line11}, #{line12}, #{line13}, #{line14}, #{line15}, #{line16}, #{line17}, #{line18}, #{line19}, #{line20},
+		#{line21}, #{line22}, #{line23}, #{line24}, #{line25}, #{line26}, #{line27}, #{line28}, #{line29}, #{line30},
+		#{playerName}
+		)
 
 	</insert>
 
-	
 
-	<!-- public void saveRecord(); //종료 후 기록 저장 public void RecordView(); -->
+
+	<select id="login"
+		resultType="co.yedam.game.board.control.PlayerVO">
+		SELECT * 
+		FROM player 
+		WHERE player_name = #{playerName}
+		<if test="playerPassword != null">
+			AND player_password = #{playerPassword}
+		</if>
+	</select>
+	
 
 
 
