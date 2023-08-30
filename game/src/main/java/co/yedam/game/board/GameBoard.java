@@ -128,11 +128,10 @@ public class GameBoard {
 		EventVO event = new EventVO();
 		List<EventVO> selectList = eventControl.firstLine(event);
 		eventList.addAll(selectList);
-		
+
 		selectList = eventControl.firstLine(event);
 		System.out.println(eventList.get(0).getEventContent());
-		
-		
+
 		for (i = 2; i <= 30; i++) {
 			space();
 
